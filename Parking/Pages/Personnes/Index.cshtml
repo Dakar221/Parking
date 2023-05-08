@@ -1,0 +1,54 @@
+﻿@page
+@model Parking.Pages.Personnes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne[0].Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne[0].Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne[0].Numerotelephone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Personne[0].NumeroNin)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Personne) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numerotelephone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroNin)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PersonneId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PersonneId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PersonneId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

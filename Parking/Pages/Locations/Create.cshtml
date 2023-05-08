@@ -1,0 +1,57 @@
+﻿@page
+@model Parking.Pages.Locations.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Location</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Location.DateLocation" class="control-label"></label>
+                <input asp-for="Location.DateLocation" class="form-control" />
+                <span asp-validation-for="Location.DateLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location.DateRetourPrevue" class="control-label"></label>
+                <input asp-for="Location.DateRetourPrevue" class="form-control" />
+                <span asp-validation-for="Location.DateRetourPrevue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location.DateRetour" class="control-label"></label>
+                <input asp-for="Location.DateRetour" class="form-control" />
+                <span asp-validation-for="Location.DateRetour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location.Tarif" class="control-label"></label>
+                <input asp-for="Location.Tarif" class="form-control" />
+                <span asp-validation-for="Location.Tarif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location.PersonneId" class="control-label"></label>
+                <select asp-for="Location.PersonneId" class ="form-control" asp-items="ViewBag.PersonneId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location.VoitureId" class="control-label"></label>
+                <select asp-for="Location.VoitureId" class ="form-control" asp-items="ViewBag.VoitureId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
